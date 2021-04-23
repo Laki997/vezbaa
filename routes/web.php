@@ -24,6 +24,8 @@ Route::get('/teams/{team}/{player}',[PlayerController::class,'show'])->name('pla
 
 Route::post('/logout',[AuthController::class,'logout'])->middleware('auth');
 
+Route::post('/teams/{team}/comments',[CommentController::class,'store'])->name('createComment');
+
 
 
 

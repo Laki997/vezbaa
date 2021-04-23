@@ -14,6 +14,26 @@
 
 <hr>
 
+<h3>Comments</h3>
+
+<form action="{{route('createComment', ['team' => $team])}}" method="POST">
+  @csrf
+  
+  <div class="form-group">
+    <label for="content">Add comment:</label>
+    <textarea
+      class="form-control @error('content') is-invalid @enderror"
+      id="content"
+      rows="2"
+      name="conent"
+    ></textarea>
+    @error('content')
+      <div class="alert alert-danger">{{$message}}</div>
+    @enderror
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
 <h1>Igraci tima</h1>
 
 <hr>
