@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\PlayerController;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,4 +22,19 @@ Route::get('/teams/{team}',[TeamController::class,'show'])->name('team');
 
 Route::get('/teams/{team}/{player}',[PlayerController::class,'show'])->name('player');
 
-// Route::get('players/{id}',[PlayerController::class,'show']);
+Route::post('/logout',[AuthController::class,'logout'])->middleware('auth');
+
+
+
+
+
+Route::group(['middleware'=>'guest'],function(){
+    
+    Route::get('/register',[AuthController::class,'getRegisterForm']);
+    
+    Route::post('/register',[AuthController::class,'register'])->name('login');
+    
+    Route::get('/login',[AuthController::class,'getLoginForm']);
+    
+    Route::post('/login',[AuthController::class,'login'])->name('login');
+});

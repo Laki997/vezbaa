@@ -7,7 +7,15 @@ use App\Models\Team;
 use App\Models\Player;
 
 class TeamController extends Controller
+
+
 {
+
+
+    public function __construct(){
+        return $this->middleware('auth');
+    }
+    
     /**
      * Display a listing of the resource.
      *
