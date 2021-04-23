@@ -24,7 +24,14 @@ class CreateCommentRequest extends FormRequest
     public function rules()
     {
         return [
-            'content' => 'required|string|min:10'
+            'content' => 'required|string|min:10|not_in:hate,idiot,stupid'
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'content.not_in' => 'Ne smes da koristis te reci'
         ];
     }
 }
