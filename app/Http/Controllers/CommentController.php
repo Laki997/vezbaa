@@ -39,6 +39,8 @@ class CommentController extends Controller
         $data = $request->validated();
 
         $team->comments()->create($data);
+
+        return back();
     }
 
     /**

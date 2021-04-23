@@ -16,6 +16,14 @@
 
 <h3>Comments</h3>
 
+<ul>
+@foreach($team->comments as $comment)
+<li>{{$comment->content}}</li>
+
+
+</ul>
+@endforeach
+
 <form action="{{route('createComment', ['team' => $team])}}" method="POST">
   @csrf
   
@@ -25,7 +33,7 @@
       class="form-control @error('content') is-invalid @enderror"
       id="content"
       rows="2"
-      name="conent"
+      name="content"
     ></textarea>
     @error('content')
       <div class="alert alert-danger">{{$message}}</div>

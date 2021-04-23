@@ -57,7 +57,7 @@ class TeamController extends Controller
      */
     public function show($id)
     {
-       $team = Team::find($id)->with('players')->first();
+       $team = Team::find($id)->with('players')->with('comments')->first();
         
         
 
