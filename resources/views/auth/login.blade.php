@@ -35,7 +35,7 @@
   </div>
 
   @if($pogresne_informacije ?? false)
-    <div class="alert alert-danger">Pogresne informaciej za logovanje</div>
+    <div class="alert alert-danger">Pogresne informacije za logovanje</div>
   @endif
   <button type="submit" class="btn btn-primary">Login</button>
 </form>

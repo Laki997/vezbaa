@@ -16,6 +16,7 @@ class AuthController extends Controller
     public function getRegisterForm(){
 
         return view('auth.register');
+        
     }
 
     public function register(CreateRegisterRequest $request){
@@ -47,7 +48,7 @@ class AuthController extends Controller
             return redirect('/');
         }
 
-        return view('auth.login',['pogresne_informcije'=>true]);
+        return view('auth.login',['pogresne_informacije'=>true]);
 
         //  return redirect()->intended('login');
 
