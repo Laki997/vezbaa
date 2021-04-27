@@ -6,6 +6,8 @@ use App\Http\Requests\CreateRegisterRequest;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\Registered;
 
 class AuthController extends Controller
 {
@@ -26,6 +28,8 @@ class AuthController extends Controller
         $data['password'] = Hash::make($data['password']);
 
         $user = User::create($data);
+
+        Mail::to($user)->send(new Registered($user));
 
         auth()->login($user);
         return redirect('/');

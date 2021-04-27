@@ -5,24 +5,25 @@
 
 
 @section('content')
-<h2>Team</h2>
+<h2>Team </h2>
 
-<h3>{{$team->name}}</h3>
-<h3>{{$team->email}}</h3>
-<h3>{{$team->address}}</h3>
-<h3>{{$team->city}}</h3>
+<h3>Tim: {{$team->name}}</h3>
+<h3>Adresa: {{$team->address}}</h3>
+<h3>Grad: {{$team->city}}</h3>
 
 <hr>
 
 <h3>Comments</h3>
+<hr>
 
 <ul>
+
 @foreach($team->comments as $comment)
 <li>{{$comment->content}}</li>
 
-
-</ul>
 @endforeach
+</ul>
+
 
 <form action="{{route('createComment', ['team' => $team])}}" method="POST">
   @csrf
@@ -39,6 +40,7 @@
       <div class="alert alert-danger">{{$message}}</div>
     @enderror
   </div>
+  <br>
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 

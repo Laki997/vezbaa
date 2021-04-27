@@ -13,8 +13,6 @@
 </ul>
 
 
-<form action="{{route('createComment', ['team' => $team])}}" method="POST">
-  @csrf
 
   
 @endsection
