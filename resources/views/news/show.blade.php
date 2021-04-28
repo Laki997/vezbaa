@@ -12,7 +12,7 @@
 <h4>Vest se odnosi na sledece timove:</h4>
 @foreach($new->teams as $team)
 
-<h3><a href="{{route('teamNews',['team'=>$team->id])}}">{{$team->name}}</a> </h3>
+<h3><a href="{{route('teamNews',['new' => $new->id, 'team'=> $team->id])}}">{{$team->name}}</a> </h3>
 
 @endforeach
 

@@ -37,7 +37,7 @@ Route::get('/news',[NewsController::class,'index']);
 
 Route::get('/news/{new}',[NewsController::class,'show'])->name('new');
 
-Route::get('/teams/{team}',[TeamController::class,'teamNews'])->name('teamNews');
+Route::get('/news/{new}/{team}',[TeamController::class,'teamNews'])->name('teamNews');
 
 
 

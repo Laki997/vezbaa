@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\News;
 use App\Models\Team;
 use App\Models\Player;
+
 
 class TeamController extends Controller
 
@@ -64,7 +66,7 @@ class TeamController extends Controller
         return view('teams.show', compact('team'));
     }
 
-    public function teamNews(Team $team){
+    public function teamNews(News $new,Team $team){
 
         $team->load('news');
 

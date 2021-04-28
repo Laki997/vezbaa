@@ -54,7 +54,7 @@ class NewsController extends Controller
 
     {
         info($new);
-        $new->load('teams');
+        $new->load('teams')->orderBy('title')->paginate(2);
        info($new);
         
 
