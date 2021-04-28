@@ -12,6 +12,14 @@
   @endforeach
 </ul>
 
+<div>{{$news->links()}}</div>
+
+    <style>
+  svg {
+      width: 20px;
+  }
+</style>
+
 
 
   
