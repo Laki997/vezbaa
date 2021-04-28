@@ -11,6 +11,16 @@
 <h3>Adresa: {{$team->address}}</h3>
 <h3>Grad: {{$team->city}}</h3>
 
+<br>
+<hr>
+
+@foreach($team->news as $new)
+<li><a href="{{route('team',['team' =>$team->id, 'new' => $new->id])}}">{{$team->name}}</a></li>
+
+@endforeach
+
+
+
 <hr>
 
 <h3>Comments</h3>
@@ -55,6 +65,10 @@
 
 
 @endforeach
+
+
+
+
 
 </ul>
 

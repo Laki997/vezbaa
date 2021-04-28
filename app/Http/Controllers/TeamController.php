@@ -64,6 +64,14 @@ class TeamController extends Controller
         return view('teams.show', compact('team'));
     }
 
+    public function teamNews(Team $team){
+
+        $team->load('news');
+
+        return view('teams.news',compact('team'));
+
+    }
+
     /**
      * Show the form for editing the specified resource.
      *

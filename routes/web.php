@@ -25,6 +25,8 @@ Route::get('/' ,[TeamController::class,'index']);
 
 Route::get('/teams/{team}',[TeamController::class,'show'])->name('team');
 
+
+
 Route::get('/teams/{team}/{player}',[PlayerController::class,'show'])->name('player');
 
 Route::post('/logout',[AuthController::class,'logout'])->middleware('auth');
@@ -34,6 +36,11 @@ Route::post('/teams/{team}/comments',[CommentController::class,'store'])->name('
 Route::get('/news',[NewsController::class,'index']);
 
 Route::get('/news/{new}',[NewsController::class,'show'])->name('new');
+
+Route::get('/teams/{team}',[TeamController::class,'teamNews'])->name('teamNews');
+
+
+
 
 
 
