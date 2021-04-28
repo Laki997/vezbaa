@@ -33,5 +33,14 @@
 
 
 
-@endsection
+<br>
+<div>{{$news->links()}}</div>
+<br>
+<style>
+  svg {
+      width: 20px;
+  }
+</style>
+        @endsection
+
 
