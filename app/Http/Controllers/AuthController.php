@@ -48,7 +48,7 @@ class AuthController extends Controller
             'password'=> $request->input('password')
         ];
 
-        if (auth()->attempt($informacije)){
+    if (auth()->attempt($informacije)){
             return redirect('/');
         }
 

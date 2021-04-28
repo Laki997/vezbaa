@@ -5,6 +5,7 @@ use App\Http\Controllers\TeamController;
 use App\Http\Controllers\PlayerController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\NewsController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
 use App\Http\Middleware\CheckWords;
@@ -29,6 +30,10 @@ Route::get('/teams/{team}/{player}',[PlayerController::class,'show'])->name('pla
 Route::post('/logout',[AuthController::class,'logout'])->middleware('auth');
 
 Route::post('/teams/{team}/comments',[CommentController::class,'store'])->name('createComment')->middleware(CheckWords::class);
+
+Route::get('/news',[NewsController::class,'index']);
+
+Route::get('/news/{new}',[NewsController::class,'show'])->name('new');
 
 
 

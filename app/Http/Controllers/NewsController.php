@@ -2,14 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CreateCommentRequest;
 use Illuminate\Http\Request;
-use App\Models\Team;
-use Illuminate\Support\Facades\Mail;
-use App\Mail\CommentReceived;
+use App\Models\News;
 
-
-class CommentController extends Controller
+class NewsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,7 +14,10 @@ class CommentController extends Controller
      */
     public function index()
     {
-        //
+        $news = News::with('user')->paginate(5);
+
+        return view('news.index',compact('news'));
+       
     }
 
     /**
@@ -37,15 +36,9 @@ class CommentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Team $team, CreateCommentRequest $request)
+    public function store(Request $request)
     {
-        $data = $request->validated();
-
-       $comment = $team->comments()->create($data);
-
-        Mail::to($team->players)->send(new CommentReceived($team, $comment, auth()->user()));
-         
-        return back();
+        //
     }
 
     /**
@@ -56,7 +49,9 @@ class CommentController extends Controller
      */
     public function show($id)
     {
-        //
+        $new = News::find($id);
+
+        return view('news.show',compact('new'));
     }
 
     /**
