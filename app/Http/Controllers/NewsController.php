@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\News;
-
+use App\Models\Team;
+use App\Http\Requests\NewsRequest;
 class NewsController extends Controller
 {
     /**
@@ -26,8 +27,12 @@ class NewsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
+
+
     {
-        //
+         $teams = Team::all();
+
+        return view('news.create',compact('teams'));
     }
 
 
@@ -39,9 +44,18 @@ class NewsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(NewsRequest $request)
     {
-        //
+        $data = $request->validated();
+
+
+        $user = auth()->user();
+
+        $newNews = $user->news()->create($data);
+
+        $newNews->teams()->attach($data['teams']);
+
+        return redirect('/news');
     }
 
     /**

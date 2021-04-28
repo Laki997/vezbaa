@@ -39,6 +39,9 @@ Route::get('/news/{new}',[NewsController::class,'show'])->name('new');
 
 Route::get('/news/{new}/{team}',[TeamController::class,'teamNews'])->name('teamNews');
 
+Route::get('/create',[NewsController::class,'create']);
+Route::post('/news',[NewsController::class,'store']);
+
 
 
 
