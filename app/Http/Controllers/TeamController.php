@@ -68,9 +68,11 @@ class TeamController extends Controller
 
     public function teamNews(News $new,Team $team){
 
-        $team->load('news');
+        // $team->load('news');
 
-        return view('teams.news',compact('team'));
+        $news = $team->news()->paginate(2);
+
+        return view('teams.news',compact(['team','news']));
 
     }
 
