@@ -55,6 +55,8 @@ class NewsController extends Controller
 
         $newNews->teams()->attach($data['teams']);
 
+        $request->session()->flash('status_message','You have succesfully created a news');
+
         return redirect('/news');
     }
 

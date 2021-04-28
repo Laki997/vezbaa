@@ -12,6 +12,12 @@
   @endforeach
 </ul>
 
+@if (session('status_message'))
+    <div class="alert alert-success">
+        {{ session('status_message') }}
+    </div>
+@endif
+
 <div>{{$news->links()}}</div>
 
     <style>
